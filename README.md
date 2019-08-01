@@ -1,4 +1,4 @@
-## Vue example [Open in browser](https://hsplit.github.io/html-course-project/)
+## Vue example [Open in browser](https://hsplit.github.io/)
 
 Project created via vue-cli(ui)
 
