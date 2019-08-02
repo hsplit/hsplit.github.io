@@ -34,4 +34,5 @@ export const randomShadowTags = (outlineSize = 0, boxShadowSize = 30) => {
   })
 }
 
+randomShadowTags.getRandomColor = getRandomColor
 window.randomShadowTags = randomShadowTags
