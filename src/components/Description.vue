@@ -18,6 +18,7 @@
       Other projects on github <router-link to="/other">here</router-link>.
       <br>
       <br>
+      <a href="https://github.com/hsplit/hsplit.github.io">Repo</a> of this project.
     </article>
     <div class="warning">Don't look at vue code please, save your eyes.</div>
   </div>
