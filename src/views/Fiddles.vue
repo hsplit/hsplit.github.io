@@ -27,7 +27,7 @@
       <article>
         <h4>Js Tricks</h4>
         Modal mode (prevent scroll body when modal is open) <a href="https://jsfiddle.net/4oenLzkr/">https://jsfiddle.net/4oenLzkr/</a><br>
-        Open/focus our tab in browser <a href="https://jsfiddle.net/fck2sj1b/">https://jsfiddle.net/fck2sj1b/</a><br>
+        Open/focus new tab in browser <a href="https://jsfiddle.net/fck2sj1b/">https://jsfiddle.net/fck2sj1b/</a><br>
         Get Object With Similar Values <a href="https://jsfiddle.net/jr3benz5/">https://jsfiddle.net/jr3benz5/</a><br>
         Custom Promise <a href="https://jsfiddle.net/z5g19dr8/4/">https://jsfiddle.net/z5g19dr8/4/</a><br>
         Show Author (leave your signature on your project) <a href="https://jsfiddle.net/rabgxp62/">https://jsfiddle.net/rabgxp62/</a><br>
