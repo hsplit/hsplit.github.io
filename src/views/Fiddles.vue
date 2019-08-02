@@ -26,6 +26,10 @@
       </article>
       <article>
         <h4>Js Tricks</h4>
+        <div class="codeExample">
+          <span class="code">const getClass = obj => ({}.toString.call(obj).slice(8, -1))</span><br>
+          <span class="code">const snapshot = (obj, msg) => console.log(msg || 'snapshot', JSON.parse(JSON.stringify(obj)))</span>
+        </div>
         Modal mode (prevent scroll body when modal is open) <a href="https://jsfiddle.net/4oenLzkr/">https://jsfiddle.net/4oenLzkr/</a><br>
         Open/focus new tab in browser <a href="https://jsfiddle.net/fck2sj1b/">https://jsfiddle.net/fck2sj1b/</a><br>
         Get Object With Similar Values <a href="https://jsfiddle.net/jr3benz5/">https://jsfiddle.net/jr3benz5/</a><br>
@@ -37,6 +41,10 @@
         <h4>Js task about callbacks with timers</h4>
         Task <a href="https://jsfiddle.net/v5b8hdvt/1/">https://jsfiddle.net/v5b8hdvt/1/</a><br>
         Solution <a href="https://jsfiddle.net/pnrac2he/">https://jsfiddle.net/pnrac2he/</a>
+      </article>
+      <article>
+        <h4>Js task: check for contains pair with sum as K</h4>
+        Solution with performance tests <a href="https://jsfiddle.net/4aLms7g5/">https://jsfiddle.net/4aLms7g5/</a>
       </article>
     </div>
 </template>
@@ -51,6 +59,15 @@
   .Fiddle {
     padding: 15px;
     overflow: auto;
+    .codeExample {
+      line-height: 1;
+      font-size: 14px;
+      font-family: Consolas;
+      margin-bottom: 10px;
+      .code {
+        color: #6dd5ed;
+      }
+    }
   }
   h4 {
     line-height: 1;
