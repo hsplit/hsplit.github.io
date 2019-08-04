@@ -84,6 +84,7 @@
     }
     .hintCode {
       color: #6dd5ed;
+      font-family: Consolas;
     }
   }
 </style>

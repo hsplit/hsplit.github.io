@@ -1,13 +1,17 @@
 <template>
   <div class="app">
     <div class="nav">
-      <img alt="Vue logo" class="logo" src="./assets/logo.png">
+      <router-link to="/"><img alt="Vue logo" class="logo" src="./assets/logo.png"></router-link>
       <router-link to="/">Home</router-link>
       <router-link to="/walking-horse">Walking horse</router-link>
       <router-link to="/xo">XO game</router-link>
       <router-link to="/fiddle">Fiddle notes</router-link>
-      <router-link to="/other">Other</router-link>
-      <a href="https://t.me/jsrules" class="telegram">JS Rules (Telegram)</a>
+      <router-link to="/other">Other projects</router-link>
+      <router-link to="/bookmarks">Bookmarks</router-link>
+      <span class="contact">
+        <a href="https://t.me/h_split">Telegram</a><br>
+        <a href="https://www.linkedin.com/in/oleg-sak/">LinkedIn</a>
+      </span>
     </div>
     <router-view />
   </div>
@@ -61,10 +65,11 @@
 </style>
 
 <style scoped lang="scss">
-  .telegram {
+  .contact {
     width: 100%;
     font-size: 14px;
-    padding-top: 15px;
+    line-height: 24px;
+    padding-top: 10px;
     border-top: 1px solid;
   }
   .app {
@@ -75,6 +80,7 @@
     display: flex;
     color: #ffffff;
     height: 100vh;
+    overflow: hidden;
     > * {
       &:first-child {
         flex-basis: 15%;
@@ -106,6 +112,5 @@
   .logo {
     height: 50px;
     width: 50px;
-    margin-bottom: 20px;
   }
 </style>

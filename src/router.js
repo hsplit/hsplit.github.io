@@ -32,6 +32,11 @@ export default new Router({
       component: () => import('./views/Other.vue'),
     },
     {
+      path: '/bookmarks',
+      name: 'bookmarks',
+      component: () => import('./views/Bookmarks.vue'),
+    },
+    {
       path: '/*',
       name: '404',
       component: () => import('./views/404.vue'),
