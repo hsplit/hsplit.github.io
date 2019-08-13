@@ -41,11 +41,12 @@
           ],
         },
         {
-          title: 'React',
+          title: 'React/Redux',
           links: [
             { text: 'Learn React JS', href: 'https://learn-reactjs.ru/home' },
             { text: 'React Lifecycle', href: 'http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/' },
             { text: 'React Developer Roadmap', href: 'https://github.com/adam-golab/react-developer-roadmap' },
+            { text: 'Redux. Простой как грабли', href: 'https://m.habr.com/ru/post/439104/' },
           ],
         },
         {
@@ -106,7 +107,6 @@
             { ltext: 'link', text: 'Fun Fun Function', href: 'https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q' },
             { ltext: 'link', text: 'Max Frontend', href: 'https://www.youtube.com/channel/UCqJyAVWwIqPWKEkfCSP1y4Q' },
             { ltext: 'link', text: 'Пятиминутка React', href: 'https://www.youtube.com/channel/UCtcMCp5GwNdQuloP4v5slfw' },
-            { ltext: 'link', text: 'CSSSR', href: 'https://www.youtube.com/channel/UCdkZ6ckHOJ3DjAYxoGeMG0w' },
             { ltext: 'link', text: 'Monsterlessons', href: 'https://www.youtube.com/channel/UCyUFMVZ6VnbB5a8d_EyrFBQ' },
             { ltext: 'link', text: 'Glo Academy — HTML, CSS и JS', href: 'https://www.youtube.com/channel/UCVswRUcKC-M35RzgPRv8qUg' },
             { ltext: 'link', text: 'CodeDojo', href: 'https://www.youtube.com/channel/UCY10FZglXJ8RL3xB04VpykQ' },
