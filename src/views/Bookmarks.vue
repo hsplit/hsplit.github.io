@@ -24,6 +24,7 @@
             { text: 'METANIT.COM', href: 'https://metanit.com/web/' },
             { text: 'SOLID book', href: 'https://ota-solid.now.sh/' },
             { text: 'Про токены', href: 'https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc' },
+            { text: 'Введение в OAuth 2', href: 'https://www.digitalocean.com/community/tutorials/oauth-2-ru' },
           ],
         },
         {
@@ -55,6 +56,7 @@
             { text: 'Online regex tester', href: 'https://regex101.com/' },
             { text: 'Regex шпаргалка', href: 'http://froland.ru/samodel/jshelp/regexp0.html' },
             { text: 'Регулярные выражения на примерах', href: 'https://vk.com/@itcookies-regulyarnye-vyrazheniya-na-primerah' },
+            { text: 'Learn regex the easy way', href: 'https://github.com/ziishaned/learn-regex/blob/master/translations/README-ru.md' },
           ],
         },
         {
