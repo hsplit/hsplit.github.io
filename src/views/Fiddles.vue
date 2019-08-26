@@ -46,6 +46,10 @@
         <h4>Js task: check for contains pair with sum as K</h4>
         Solution with performance tests <a href="https://jsfiddle.net/4aLms7g5/">https://jsfiddle.net/4aLms7g5/</a>
       </article>
+      <article>
+        <h4>Js task: execute <i>12-2+333/7+1*2</i> without using eval</h4>
+        Solution <a href="https://jsfiddle.net/jxkpchbo/">https://jsfiddle.net/jxkpchbo/</a>
+      </article>
     </div>
 </template>
 
