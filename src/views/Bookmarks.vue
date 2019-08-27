@@ -119,6 +119,7 @@
           title: 'Other',
           links: [
             { text: 'Markdown editor', href: 'https://dillinger.io' },
+            { text: 'Code Galaxies Visualization', href: 'https://anvaka.github.io/pm' },
             { text: 'JSONPlaceholder', href: 'https://jsonplaceholder.typicode.com/' },
             { text: 'particles.js', href: 'https://vincentgarreau.com/particles.js/' },
             { text: 'Page speed', href: 'https://developers.google.com/speed/pagespeed/insights/' },
