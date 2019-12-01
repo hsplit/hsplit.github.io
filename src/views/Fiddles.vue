@@ -50,6 +50,10 @@
         <h4>Js task: execute <i>12-2+333/7+1*2</i> without using eval</h4>
         Solution <a href="https://jsfiddle.net/jxkpchbo/">https://jsfiddle.net/jxkpchbo/</a>
       </article>
+      <article>
+        <h4>Js task: the knapsack problem or rucksack problem</h4>
+        Solution <a href="https://jsfiddle.net/Lp5rzhnu/">https://jsfiddle.net/Lp5rzhnu/</a>
+      </article>
     </div>
 </template>
 

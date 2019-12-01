@@ -1,6 +1,8 @@
 <template>
   <div class="Description">
-    <h2 class="title">Welcome to vue example</h2>
+    <h2 class="title">
+      Welcome to vue example <a href="https://github.com/hsplit/hsplit.github.io">repo</a>
+    </h2>
     <article>
       Here you probably can find nothing useful
       <p>
@@ -19,9 +21,6 @@
       <br>
       <br>
       Bookmarks <router-link to="/bookmarks">here</router-link>.
-      <br>
-      <br>
-      <a href="https://github.com/hsplit/hsplit.github.io">Repo</a> of this project.
     </article>
     <div class="warning">Don't look at vue code please, save your eyes.</div>
   </div>
@@ -34,6 +33,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  h2 {
+    a {
+      text-decoration: underline;
+    }
+  }
   .Description {
     padding: 20px;
   }
