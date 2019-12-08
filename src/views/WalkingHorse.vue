@@ -1,6 +1,6 @@
 <template>
   <div class="WalkingHorse">
-    How it works, algorithm on <a href="https://jsfiddle.net/avme0fc6/">jsfiddle</a>
+    How it works, algorithm on <a href="https://jsfiddle.net/468myvs0/">jsfiddle</a>
     <div class="content">
       <div>
         <ChessTable
@@ -167,8 +167,8 @@
     const d = t[position.x][position.y]
     t[position.x][position.y] = step
 
-    if (way.length === 63 && typeof table[position.x][position.y] === 'string') {
-      throw { table: t, way: [...way,  table[position.x][position.y]] }
+    if (way.length === 63) {
+      throw { table: t, way: [...way,  d] }
     }
 
     possibleSteps
@@ -178,13 +178,13 @@
         trySolve(t, pos, step + 1, [...way, d])
       })
 
-    throw 'No results'
+    return 'No results'
   }
 
   const getHorseWay = startPos => {
     try {
       tryNumber = 0
-      trySolve(copy(initTable), startPos, 1)
+      return { error: trySolve(copy(initTable), startPos, 1) }
     } catch (e) {
       if (typeof e === 'string') {
         return { error: e }
