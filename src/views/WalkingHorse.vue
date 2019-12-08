@@ -1,6 +1,6 @@
 <template>
   <div class="WalkingHorse">
-    How it works, algorithm on <a href="https://jsfiddle.net/017sej3u/">jsfiddle</a>
+    How it works, algorithm on <a href="https://jsfiddle.net/avme0fc6/">jsfiddle</a>
     <div class="content">
       <div>
         <ChessTable
@@ -48,9 +48,13 @@
       </div>
       <div class="history">
         <div class="way" v-for="(cells, i) in history" :key="i">
-          {{ cells.join(', ') }} - <span :class="{full: cells.length === 64}">
-          {{ cells.length }} of 64<span v-if="cells.length !== 64">. Sorry, this algorithm is not ideal.</span>
-        </span>
+          <div v-if="typeof cells === 'string'">
+            {{ cells }}
+          </div>
+          <div v-else="">
+            {{ cells.join(', ') }} -
+            <span :class="{full: cells.length === 64}">{{ cells.length }} of 64</span>
+          </div>
         </div>
       </div>
     </div>
@@ -127,6 +131,7 @@
     ['G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8'],
   ]
 
+  const copy = d => JSON.parse(JSON.stringify(d))
   const stepDirections = [
     { dx: -2, dy: -1 },
     { dx: -1, dy: -2 },
@@ -138,55 +143,56 @@
     { dx: 2, dy: 1 },
   ]
 
-  const maxSafeSteps = 500
+  const maxSafeSteps = 100000
 
-  const getHorseWay = startPos => {
-    const table = initTable.map(ar => [...ar])
-    const position = { ...startPos }
-
-    const way = []
-    let step = 1
-
-    while (true) {
-      const possibleSteps = getPossibleSteps(table, position)
-
-      if (!possibleSteps.length || step > maxSafeSteps) {
-        way.push(table[position.x][position.y])
-        table[position.x][position.y] = step
-        break
-      }
-
-      const withCountWaysSorted = possibleSteps.map(position => ({
-        ...position,
-        countNext: getPossibleSteps(table, position).length
-      })).sort(({ countNext: a }, { countNext: b}) => a === b ? 0 : a < b ? -1 : 1)
-
-      let nextStep
-
-      for (let i = 0; i < withCountWaysSorted.length; i++) {
-        if (withCountWaysSorted[i].countNext !== 0) {
-          nextStep = withCountWaysSorted[i]
-          break
-        }
-      }
-
-      nextStep = nextStep || withCountWaysSorted[0]
-
-      way.push(table[position.x][position.y])
-      table[position.x][position.y] = step
-      step++
-      position.x = nextStep.x
-      position.y = nextStep.y
-    }
-
-    return { way, table }
-  }
-
-  const getPossibleSteps = (table, { x, y }) => stepDirections
+  const getPossibleSteps = ({ x, y }, table) => stepDirections
     .filter(({ dx, dy }) =>
       table[x + dx] && table[x + dx][y + dy] && !Number(table[x + dx][y + dy])
     )
     .map(({ dx, dy }) => ({ x: x + dx, y: y + dy }))
+
+  let tryNumber = 0
+  const trySolve = (table, position, step, way = []) => {
+    const possibleSteps = getPossibleSteps(position, table)
+    tryNumber++
+    if (tryNumber > maxSafeSteps) {
+      const tryMore = confirm(`To much steps, keep trying? (One try - ${maxSafeSteps} steps)`)
+      if (tryMore) {
+        tryNumber = 0
+      } else {
+        throw 'To much steps'
+      }
+    }
+    const t = copy(table)
+    const d = t[position.x][position.y]
+    t[position.x][position.y] = step
+
+    if (way.length === 63 && typeof table[position.x][position.y] === 'string') {
+      throw { table: t, way: [...way,  table[position.x][position.y]] }
+    }
+
+    possibleSteps
+      .map(pos => ({ ...pos, countNext: getPossibleSteps(pos, t).length }))
+      .sort(({ countNext: a }, { countNext: b }) => a === b ? 0 : a < b ? -1 : 1)
+      .forEach(pos => {
+        trySolve(t, pos, step + 1, [...way, d])
+      })
+
+    throw 'No results'
+  }
+
+  const getHorseWay = startPos => {
+    try {
+      tryNumber = 0
+      trySolve(copy(initTable), startPos, 1)
+    } catch (e) {
+      if (typeof e === 'string') {
+        return { error: e }
+      } else {
+        return e
+      }
+    }
+  }
 
   const findPos = val => {
     const x = initTable.findIndex(item => item.some(cell => cell === val))
@@ -248,23 +254,27 @@
         this.fieldEnabled = true
       },
       goWalk () {
-        const { way } = getHorseWay(this.position)
-        this.fieldEnabled = false
-        this.resetTable()
+        const { way, error } = getHorseWay(this.position)
+        if (error) {
+          this.addHistory(error)
+        } else {
+          this.fieldEnabled = false
+          this.resetTable()
 
-        for (let i = 0; i < way.length; i++) {
-          this.timeouts.push(setTimeout(() => {
-            const val = way[i]
-            const { x, y } = findPos(val)
-            this.position = { x, y }
-            this.$set(this.renderTable[x], y, i + 1)
-            if (i === way.length - 1) {
-              this.fieldEnabled = true
-              this.addHistory(way)
-              this.walked = true
-            }
-            this.timeouts.shift()
-          }, this.delay * i))
+          for (let i = 0; i < way.length; i++) {
+            this.timeouts.push(setTimeout(() => {
+              const val = way[i]
+              const { x, y } = findPos(val)
+              this.position = { x, y }
+              this.$set(this.renderTable[x], y, i + 1)
+              if (i === way.length - 1) {
+                this.fieldEnabled = true
+                this.addHistory(way)
+                this.walked = true
+              }
+              this.timeouts.shift()
+            }, this.delay * i))
+          }
         }
       },
       setPosition (e, pos) {
